@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'screens/categories_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,31 +13,20 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Vamos Cozinhar?',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+          primary: Colors.pink,
+          secondary: Colors.amber,
+        ),
+        scaffoldBackgroundColor: const Color.fromRGBO(255, 254, 229, 1),
+        fontFamily: 'Raleway',
+        textTheme: ThemeData.light().textTheme.copyWith(
+              titleLarge: const TextStyle(
+                fontSize: 20,
+                fontFamily: 'RobotoCondensed',
+              ),
+            ),
       ),
-      home: const MyHomePage(),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.blue,
-        title: const Text('Vamos Cozinhar?'),
-      ),
-      body: const Center(
-        child: Text('Navegar é preciso!!'),
-      ),
+      home: const CategoriesScreen(),
     );
   }
 }
